@@ -27,6 +27,7 @@ dist-ssr
 amplify/\#current-cloud-backend
 amplify/.config/local-*
 amplify/logs
+amplify/team-provider-info.json
 amplify/mock-data
 amplify/mock-api-resources
 amplify/backend/amplify-meta.json
