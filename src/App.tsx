@@ -19,14 +19,10 @@ try {
   const APPLICATION_VERSION: string = "1.0.0";
   const APPLICATION_REGION: string = "ap-northeast-1";
 
-  const awsRum: AwsRum = new AwsRum(
-    APPLICATION_ID,
-    APPLICATION_VERSION,
-    APPLICATION_REGION,
-    config
-  );
+  new AwsRum(APPLICATION_ID, APPLICATION_VERSION, APPLICATION_REGION, config);
 } catch (error) {
   // Ignore errors thrown during CloudWatch RUM web client initialization
+  console.error(error);
 }
 
 function App() {
