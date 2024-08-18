@@ -9,16 +9,17 @@ import logger from "./utils/logger";
 try {
   const config: AwsRumConfig = {
     sessionSampleRate: 1,
-    identityPoolId: "ap-northeast-1:e10f7e44-85e1-4d5e-b1b6-18b68a4345b3",
+    identityPoolId: import.meta.env.VITE_IDENTITY_POOL_ID,
     endpoint: "https://dataplane.rum.ap-northeast-1.amazonaws.com",
     telemetries: ["performance", "errors", "http"],
     allowCookies: true,
     enableXRay: false,
   };
 
-  const APPLICATION_ID: string = "ae20ca01-4185-4a04-9840-c2a64cbcd5c7";
+  const APPLICATION_ID: string = import.meta.env
+    .VITE_CLOUDWATCH_RUM_APPLICATION_ID;
   const APPLICATION_VERSION: string = "1.0.0";
-  const APPLICATION_REGION: string = "ap-northeast-1";
+  const APPLICATION_REGION: string = import.meta.env.VITE_APP_REGION;
 
   new AwsRum(APPLICATION_ID, APPLICATION_VERSION, APPLICATION_REGION, config);
 } catch (error) {
