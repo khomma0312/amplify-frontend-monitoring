@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 import { AwsRum, AwsRumConfig } from "aws-rum-web";
+import logger from "./utils/logger";
 
 try {
   const config: AwsRumConfig = {
@@ -22,8 +23,10 @@ try {
   new AwsRum(APPLICATION_ID, APPLICATION_VERSION, APPLICATION_REGION, config);
 } catch (error) {
   // Ignore errors thrown during CloudWatch RUM web client initialization
-  console.error(error);
+  logger.error(error);
 }
+
+logger.info("App started");
 
 function App() {
   const [count, setCount] = useState(0);
