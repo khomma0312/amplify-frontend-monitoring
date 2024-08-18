@@ -6,8 +6,6 @@ Amplify.configure({
     logGroupName: "frontendmonitoring",
     logStreamName: "test",
   },
-  aws_cognito_region: "ap-northeast-1",
-  aws_cognito_identity_pool_id: import.meta.env.VITE_IDENTITY_POOL_ID,
   ...awsExports,
 });
 
